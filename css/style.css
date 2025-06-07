@@ -1,0 +1,448 @@
+:root {
+    --bg: #f4f1e1;
+    --text: #3e2f1c;
+    --accent: #a67c52;
+    --bar-bg: #d4c1a3;
+    --bar-fill: #8b5e3c;
+    --button-bg: #a67c52;
+    --button-text: #fffaf0;
+  }
+  
+  /* General Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'EB Garamond', serif;
+  }
+  
+  body {
+    background-color:  #3e2f1c;
+    color: var(--text);
+    scroll-behavior: smooth;
+    min-height: 100vh;
+    padding-bottom: 70px;
+  }
+  
+  label {
+    margin-top: 10px;
+  }
+  
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(58, 42, 24, 0.8);
+    padding: 15px;
+    z-index: 1000;
+    text-align: center;
+    border-bottom: 3px solid var(--accent);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    font-family: 'EB Garamond', serif;
+  }
+  
+  h2, h3, .header-text-overlay h1, .header-text-overlay p {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: #3e2f1c;
+    margin-bottom: 25px;
+  }
+  
+  /* Lock font sizes on wide screens (desktop Windows) */
+  @media (min-width: 1400px) {
+    h2, h3, .header-text-overlay h1, .header-text-overlay p {
+      font-size: 2.5rem;
+    }
+  }
+  
+  h3 {
+    margin-bottom: 25px;
+  }
+  
+  h4 {
+    font-family: 'EB Garamond', serif;
+    font-size: 30px;
+    color: white;
+  }
+  
+  nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'EB Garamond', serif;
+    font-size: large;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover, nav a:focus {
+    color: #d9b66a;
+    outline: none;
+  }
+  
+  /* --- Header --- */
+  header#home {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll; /* prevent background from acting parallax */
+    transform: none !important;   /* force disable any animation */
+    transition: none !important;
+  }
+  
+  .parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0; right: 0; bottom: 0;
+    background-image: url('https://opengameart.org/sites/default/files/4_87.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+  
+  .header-text-overlay {
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 240, 210, 0.75);
+    backdrop-filter: blur(3px);
+    border-radius: 15px;
+    padding: 70px 20px;    /* Adjust horizontal padding smaller for mobile */
+    max-width: 1200px;     /* Restrict max width for better centering */
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .header-text-overlay h1 {
+    color: #3e2f1c;
+    font-family: 'EB Garamond', serif;
+    margin-bottom: 10px;
+    max-width: 1500px;
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+  }
+  
+  /* Lock h1 font size on wide screens */
+  @media (min-width: 1400px) {
+    .header-text-overlay h1 {
+      font-size: 2.5rem;
+    }
+  }
+  
+  .header-text-overlay img {
+    margin-bottom: 10px;
+    max-width: 1500px;
+    text-align: center;
+  }
+  
+  .header-text-overlay p {
+    color: #3e2f1c;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1500px;
+    text-align: center;
+  }
+  
+  /* Lock p font size on wide screens */
+  @media (min-width: 1400px) {
+    .header-text-overlay p {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .header-text-overlay h1 {
+      font-size: 1.6rem;
+    }
+    .header-text-overlay p {
+      font-size: 0.9rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+    }
+    h3 {
+      font-size: 1.3rem;
+    }
+  }
+  
+  .projects {
+    max-width: 1200px;
+    justify-content: center;
+    margin: 0 auto 60px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px; /* gap between cards */
+    padding: 0 20px;
+  }
+  
+  .card {
+    background: var(--bg);
+    color: var(--text);
+    border: 2px solid var(--accent);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(139, 94, 60, 0.4);
+    padding: 15px 20px 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+    user-select: none;
+    
+    /* Responsive flex-basis with max-width for scaling */
+    flex: 1 1 100%;
+    max-width: 400px;
+  }
+  
+  /* Medium screens: 2 cards per row */
+  @media (min-width: 600px) {
+    .card {
+      flex: 1 1 45%;
+    }
+  }
+  
+  /* Large screens: 3 cards per row */
+  @media (min-width: 900px) {
+    .card {
+      flex: 1 1 30%;
+    }
+  }
+  
+  /* Extra large screens: 4 cards per row */
+  @media (min-width: 1200px) {
+    .card {
+      flex: 1 1 22%;
+    }
+  }
+  
+  .card:hover,
+  .card:focus-within {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(166, 124, 82, 0.7);
+    cursor: pointer;
+  }
+  
+  .card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 8px var(--bar-fill);
+  }
+  
+  .card h3 {
+    margin-bottom: 10px;
+    color: var(--accent);
+    font-size: 1.5rem;
+    font-family: 'EB Garamond', serif;
+  }
+  
+  .card p {
+    font-size: 0.95rem;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 15px;
+    user-select: text;
+  }
+  
+  .card a {
+    color: var(--accent);
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 1rem;
+    user-select: text;
+    cursor: pointer;
+  }
+  
+  .card a:hover,
+  .card a:focus {
+    color: #6a4c2d;
+    outline: none;
+  }
+  
+  /* Header image */
+  header img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 15px rgba(166, 124, 82, 0.6);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* --- Tabbed Section --- */
+  #skillsTabs {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: auto;
+    background: #f8f1de;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(166, 124, 82, 0.4);
+  }
+  
+  #tabContainer {
+    min-height: 480px;
+    transition: height 0.3s ease-in-out;
+    margin-top: 20px;
+  }
+  
+  .tab-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .tab-btn {
+    background: var(--button-bg);
+    color: var(--button-text);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-family: 'EB Garamond', serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 6px rgba(166, 124, 82, 0.5);
+  }
+  
+  .tab-btn:hover,
+  .tab-btn:focus {
+    background-color: #8b5e3c;
+    outline: none;
+  }
+  
+  .tab-btn.active {
+    background-color: #6a4c2d;
+    box-shadow: 0 0 10px var(--accent);
+  }
+  
+  .tab-content {
+    min-height: 480px;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease;
+    display: none;
+  }
+  
+  .tab-content.active {
+    display: block;
+    background: #f8f1de;
+    border: 2px solid var(--accent);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(166, 124, 82, 0.4);
+    opacity: 1;
+    pointer-events: auto;
+    position: relative;
+  }
+  
+  /* Skill Bars */
+  .skill-bar-bg {
+    position: relative;
+    background: var(--bar-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 15px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 0 6px #b59d82;
+  }
+  
+  .skill-bar-fill {
+    height: 100%;
+    background: var(--bar-fill);
+    width: 0; /* Start at 0 */
+    transition: width 1s ease;
+    box-shadow: 0 0 5px var(--accent);
+  }
+  
+  /* When skill bar is visible, add a class to trigger fill */
+  .skill-bar-fill.animate {
+    width: var(--skill-level, 60%);
+  }
+  
+  label {
+    font-weight: bold;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 4px;
+  }
+  
+  small {
+    color: #7c6a50;
+    font-style: italic;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  /* Accessibility */
+  button:focus,
+  a:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  
+  #footer-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 110px;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically */
+    background: rgba(75, 57, 39, 0.8);
+    color: white;
+    box-sizing: border-box;
+    z-index: 9999;
+    font-family: 'EB Garamond', serif;
+    font-weight: normal;
+  }
+  
+  #footer-bar .socials {
+    text-align: center;
+  }
+  
+  #footer-bar a {
+    color: #ffa500;
+    text-decoration: none;
+  }
+  
+  #footer-bar a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 600px) {
+    #footer-bar {
+      flex-direction: column;
+      text-align: center;
+      padding: 15px 20px;
+    }
+    #footer-bar .contact {
+      margin-top: 10px;
+      min-width: auto;
+    }
+  }
+  
